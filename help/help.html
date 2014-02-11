@@ -1,0 +1,206 @@
+<style>body{background:#fff;}table{border: 1px #aaa solid;}e. th{border: 1px #ddd solid;padding: 0 5px;text-align:left;}.e td{padding: 0 5px;text-align:left;border: 1px #ccc solid;}.hilight{background:#0097C4;color:#fff;}.i th{padding: 0 5px;text-align:left;border-bottom:1px #ddd solid;}.i td{padding: 0 5px;text-align:left;}</style>
+<table class="e">
+	<tr>
+		<td colspan="42">characters.item_instance column 'enchantments' (all data is from SpellItemEnchantment.dbc)</td>
+	</tr>
+	<th>ench</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>gem bonus 1</th>
+	<th>?</th>
+	<th>?</th>
+	<th>gem bonus 2</th>
+	<th>?</th>
+	<th>?</th>
+	<th>gem bonus 3</th>
+	<th>?</th>
+	<th>?</th>
+	<th>socket bonus</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<th>?</th>
+	<tr>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>4002</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>4135</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+	</tr>
+</table>
+<br /><h4>obtaining item icon from DBC files</h4>
+<p>Get displayid from Item.db2</p>
+<table cellspacing="0" class="i">
+	<tr>
+		<td style="border-bottom: 1px #aaa solid;" colspan="8"> Item.db2 structure</td>
+	</tr>
+	<th class="hilight">id</th>
+	<th>class</th>
+	<th>subclass</th>
+	<th>unk0</th>
+	<th>material</th>
+	<th class="hilight">displayid</th>
+	<th>inventorytype</th>
+	<th>sheath</th>
+	<tr>
+		<td class="hilight">51580</td>
+		<td>4</td>
+		<td>4</td>
+		<td>-1</td>
+		<td>6</td>
+		<td class="hilight">61831</td>
+		<td>3</td>
+		<td>0</td>
+	</tr>
+</table>
+<p>Now find search displayid under id in ItemDisplayInfo.dbc</p>
+<table cellspacing="0" class="i">
+	<tr>
+		<td style="border-bottom: 1px #aaa solid;" colspan="8"> ItemDisplayInfo.dbc structure</td>
+	</tr>
+	<th class="hilight">field1</th>
+	<th>field2</th>
+	<th>field3</th>
+	<th>field4</th>
+	<th>material</th>
+	<th class="hilight">field6</th>
+	<th>field7</th>
+	<th>field ...</th>
+	<tr>
+		<td class="hilight">61831</td>
+		<td>LShoulder_Plate_PvPWarrior_B_03.mdx</td>
+		<td>RShoulder_Plate_PvPWarrior_B_03.mdx</td>
+		<td>shoulder_plate_pvpwarrior_b_03</td>
+		<td>shoulder_plate_pvpwarrior_b_03</td>
+		<td class="hilight">INV_SHOULDER_62</td>
+		<td>0</td>
+		<td>0</td>
+	</tr>
+</table>
+
+<br /><h4>obtaining set bonuses from DBC files</h4>
+<p>Get field1, field19, field20, field21, field27, field28,field29 from ItemSet.dbc where id == id of your set</p>
+<p>field1 is your set name</p>
+<p>field19,field20,field21 are IDs from Spell.dbc</p>
+<p>field27,field28,field29 tells you how many pieces you must wear to get bonus in previous fields</p>
+<table cellspacing="0" class="i">
+	<tr>
+		<td style="border-bottom: 1px #aaa solid;" colspan="8"> ItemSet.dbc structure</td>
+	</tr>
+	<th class="hilight">id</th>
+	<th class="hilight">field1</th>
+	<th style="width:100px;">field ...</th>
+	<th>field18</th>
+	<th class="hilight">field19</th>
+	<th class="hilight">field20</th>
+	<th class="hilight">field21</th>
+	<th>field22</th>
+	<th style="width:100px;">field ...</th>
+	<th>field26</th>
+	<th class="hilight">field27</th>
+	<th class="hilight">field28</th>
+	<th class="hilight">field29</th>
+	<th>field30</th>
+	<th style="width:100px;">field ...</th>
+	<tr>
+		<td>482</td>
+		<td>Illusionist's Attire</td>
+		<td>19601</td>
+		<td>0</td>
+		<td>41777</td>
+		<td>24489</td>
+		<td>24491</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>2</td>
+		<td>3</td>
+		<td>5</td>
+		<td>0</td>
+		<td>0</td>
+	</tr>
+</table>
+<br />
+<table cellspacing="0" class="i">
+	<tr>
+		<td style="border-bottom: 1px #aaa solid;" colspan="8"> Spell.dbc structure</td>
+	</tr>
+	<th class="hilight">id</th>
+	<th style="width:100px;">field ...</th>
+	<th class="hilight">field20</th>
+	<th>field21</th>
+	<th class="hilight">field22</th>
+	<th>field23</th>
+	<th style="width:100px;">field ...</th>
+	<tr>
+		<td class="hilight">24491</td>
+		<td>192</td>
+		<td class="hilight">Improved Flamestrike</td>
+		<td>(spell rank if present)</td>
+		<td class="hilight">Reduces the casting time of your Flamestrike spell by $/1000;S1 sec.</td>
+		<td>(short desc if present)</TD>
+		<td></td>
+	</tr>
+</table>

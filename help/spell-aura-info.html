@@ -1,0 +1,47 @@
+<style>body{background:#fff;}table{border: 1px #aaa solid;}e. th{border: 1px #ddd solid;padding: 0 5px;text-align:left;}.e td{padding: 0 5px;text-align:left;border: 1px #ccc solid;}.hilight{background:#0097C4;color:#fff;}.i th{padding: 0 5px;text-align:left;border-bottom:1px #ddd solid;}.i td{padding: 0 5px;text-align:left;}</style>
+<h4>Obtaining Spell Aura info and normalizing Description string (39671:Rain of Chaos). <b>Do not use this for debuffs!</b></h4>
+<ul>Files Needed
+	<li>Spell.dbc</li>
+	<li>SpellEffect.dbc</li>
+	<li>SpellDuration.dbc</li>
+</ul>
+<h4>The basic fields we need from Spell.dbc</h4>
+<table class="e">
+	<th class="hilight">m_ID</th>
+	<th class="hilight">m_durationIndex</th>
+	<th>m_name</th>
+	<th>m_description</th>
+	<tr>
+		<td>39671</td>
+		<td>32</td>
+		<td>Rain of CHaos</td>
+		<td>Calls down a molten rain, burning all enemies in a selected area for $s2 Fire damage every $t2 sec for $d.</td>
+	</tr>
+</table>
+<h4>... and SpellEffect.dbc</h4>
+<table class="e">
+	<th>m_effectAuraPeroid</th>
+	<th>m_effectBasePoints</th>
+	<th>m_effectChainAmplitude</th>
+	<th>m_effectDieSides</th>
+	<th class="hilight">m_effectSpellId</th>
+	<tr>
+		<td>3000</td>
+		<td>137</td>
+		<td>1</td>
+		<td>24</td>
+		<td>39671</td>
+	</tr>
+</table>
+<h4>and finally SpellDuration.dbc</h4>
+<table class="e">
+	<th class="hilight">id</th>
+	<th>field1</th>
+	<th>field3</th>
+	<tr>
+		<td>32</td>
+		<td>6000</td>
+		<td>6000</td>
+	</tr>
+</table>
+<!-- help file by moh @ yutsuku.net for WoW version 4.0.6, sorry for dirty way of coding, im too lazy -->
